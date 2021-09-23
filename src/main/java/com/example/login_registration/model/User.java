@@ -5,20 +5,20 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "user" , uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class UserModel {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long user_id;
+    private Long user_id;       // id
     @Column(name = "first_name")
-    private String firstname;
+    private String firstName;       // first name
     @Column(name = "last_name")
-    private String lastname;
+    private String lastName;        // last name
 //    @Column(name = "email")
-    private String email;
+    private String email;       // email
 //    @Column(name = "password")
-    private String password;
+    private String password;        // password
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
 //            'name' = table name given
@@ -27,14 +27,14 @@ public class UserModel {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
-    private Collection<RoleModel> roles;
+    private Collection<Role> roles;
 
 //    ToString
     @Override
     public String toString() {
-        return "UserModel{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
@@ -51,19 +51,19 @@ public class UserModel {
     }
 
     public String getFirst_name() {
-        return firstname;
+        return firstName;
     }
 
-    public void setFirst_name(String firstname) {
-        this.firstname = firstname;
+    public void setFirst_name(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLast_name() {
-        return lastname;
+        return lastName;
     }
 
-    public void setLast_name(String lastname) {
-        this.lastname = lastname;
+    public void setLast_name(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -82,32 +82,32 @@ public class UserModel {
         this.password = password;
     }
 
-    public Collection<RoleModel> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<RoleModel> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
 
     //    No Constructor
-    public UserModel() {
+    public User() {
     }
 
     //    All Constructor
-    public UserModel(Long user_id, String firstname, String lastname, String email, String password, Collection<RoleModel> roles) {
+    public User(Long user_id, String firstName, String lastName, String email, String password, Collection<Role> roles) {
         this.user_id = user_id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.roles = roles;
     }
 
 //  Constructor without 'id'
-    public UserModel(String firstname, String lastname, String email, String password, Collection<RoleModel> roles) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.roles = roles;

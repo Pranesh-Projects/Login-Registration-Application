@@ -1,11 +1,10 @@
 package com.example.login_registration.model;
 
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "role")
-public class RoleModel {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -13,17 +12,22 @@ public class RoleModel {
     private String role_name;
 
 //    All Constructor
-    public RoleModel(Long role_id, String role_name) {
+    public Role(Long role_id, String role_name) {
         this.role_id = role_id;
         this.role_name = role_name;
     }
 
 //    No Constructor
-    public RoleModel() {
+    public Role() {
 
     }
 
-//  Getter and setter
+//    Constructor without 'ID'
+    public Role(String role_name) {
+        this.role_name = role_name;
+    }
+
+    //  Getter and setter
     public Long getRole_id() {
         return role_id;
     }
