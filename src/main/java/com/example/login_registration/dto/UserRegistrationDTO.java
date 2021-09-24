@@ -1,4 +1,4 @@
-package com.example.login_registration.web.dto;
+package com.example.login_registration.dto;
 
 public class UserRegistrationDTO {
     private String firstName;

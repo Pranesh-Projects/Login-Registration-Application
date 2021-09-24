@@ -1,9 +1,8 @@
-package com.example.login_registration.web;
+package com.example.login_registration.controller;
 
 import com.example.login_registration.service.UserService;
-import com.example.login_registration.web.dto.UserRegistrationDTO;
+import com.example.login_registration.dto.UserRegistrationDTO;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller

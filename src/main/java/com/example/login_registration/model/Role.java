@@ -9,6 +9,15 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long role_id;
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "role_id=" + role_id +
+                ", role_name='" + role_name + '\'' +
+                '}';
+    }
+
     private String role_name;
 
 //    All Constructor
