@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "user" , uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
@@ -15,9 +15,9 @@ public class User {
     private String firstName;       // first name
     @Column(name = "last_name")
     private String lastName;        // last name
-//    @Column(name = "email")
+    //    @Column(name = "email")
     private String email;       // email
-//    @Column(name = "password")
+    //    @Column(name = "password")
     private String password;        // password
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -29,7 +29,30 @@ public class User {
     )
     private Collection<Role> roles;
 
-//    ToString
+    //    No Constructor
+    public User() {
+    }
+
+    //    All Constructor
+    public User(Long user_id, String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        this.user_id = user_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    //  Constructor without 'id'
+    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    //    ToString
     @Override
     public String toString() {
         return "User{" +
@@ -87,29 +110,6 @@ public class User {
     }
 
     public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
-    }
-
-    //    No Constructor
-    public User() {
-    }
-
-    //    All Constructor
-    public User(Long user_id, String firstName, String lastName, String email, String password, Collection<Role> roles) {
-        this.user_id = user_id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.roles = roles;
-    }
-
-//  Constructor without 'id'
-    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
         this.roles = roles;
     }
 }

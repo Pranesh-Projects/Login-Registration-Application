@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Registration and Login</title>
@@ -21,9 +23,9 @@
             </button>
             <a class="navbar-brand" href="#" th:href="@{/}">Registration and Login Module</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a> </li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -34,7 +36,7 @@
 
 <div class="container">
     <h2> Registration and Login with Spring Boot, Spring Security, Thymeleaf, Hibernate and MySQL</h2>
-<!--    'sec:authentication' = 'thymeleaf' attribute related to 'Spring Security'-->
+    <!--    'sec:authentication' = 'thymeleaf' attribute related to 'Spring Security'-->
     <h3>Welcome <span sec:authentication="principal.username">User</span></h3>
 </div>
 

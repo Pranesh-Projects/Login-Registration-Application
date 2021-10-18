@@ -9,6 +9,23 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long role_id;
+    private String role_name;
+
+    //    All Constructor
+    public Role(Long role_id, String role_name) {
+        this.role_id = role_id;
+        this.role_name = role_name;
+    }
+
+    //    No Constructor
+    public Role() {
+
+    }
+
+    //    Constructor without 'ID'
+    public Role(String role_name) {
+        this.role_name = role_name;
+    }
 
     @Override
     public String toString() {
@@ -16,24 +33,6 @@ public class Role {
                 "role_id=" + role_id +
                 ", role_name='" + role_name + '\'' +
                 '}';
-    }
-
-    private String role_name;
-
-//    All Constructor
-    public Role(Long role_id, String role_name) {
-        this.role_id = role_id;
-        this.role_name = role_name;
-    }
-
-//    No Constructor
-    public Role() {
-
-    }
-
-//    Constructor without 'ID'
-    public Role(String role_name) {
-        this.role_name = role_name;
     }
 
     //  Getter and setter

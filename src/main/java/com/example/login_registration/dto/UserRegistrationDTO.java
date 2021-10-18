@@ -6,7 +6,7 @@ public class UserRegistrationDTO {
     private String email;
     private String password;
 
-//    All Constructor
+    //    All Constructor
     public UserRegistrationDTO(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -14,7 +14,7 @@ public class UserRegistrationDTO {
         this.password = password;
     }
 
-//    No Constructor
+    //    No Constructor
     public UserRegistrationDTO() {
 
     }

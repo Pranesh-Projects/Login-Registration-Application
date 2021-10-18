@@ -1,9 +1,12 @@
 package com.example.login_registration.controller;
 
-import com.example.login_registration.service.UserService;
 import com.example.login_registration.dto.UserRegistrationDTO;
+import com.example.login_registration.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/registration")
@@ -21,9 +24,9 @@ public class UserRegistrationController {
 //        return "registration";
 //    }
 
-//  thymeleaf gets 'user' object from here
+    //  thymeleaf gets 'user' object from here
     @ModelAttribute("user")
-    public UserRegistrationDTO dto(){
+    public UserRegistrationDTO dto() {
         return new UserRegistrationDTO();
     }
 
